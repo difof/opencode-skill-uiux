@@ -1,28 +1,33 @@
-# Accessibility: test the task, then cite the criterion
-
-Use WCAG 2.2 Level AA (including applicable Level A criteria) as the web accessibility target. The ARIA Authoring Practices Guide (APG) describes interaction patterns; it is not a conformance standard. Start by reproducing the barrier on the affected route.
-
-## Structure and semantics
-
-- Use headings and landmarks that expose the page structure, native links for navigation, buttons for actions, persistent programmatic labels for inputs, and real tables for tabular data. Icon-only controls need an accessible name; decorative glyphs should not be announced twice.
-- A role is not an interaction. Before adding ARIA, check whether a native element or existing accessible primitive implements the behavior. Match each custom widget’s role, state, keyboard interaction, and name.
-- Announce relevant status changes without stealing focus or announcing every refresh. Associate validation text with the affected field and preserve typed values after failure.
-
-## Keyboard, focus, and overlays
-
-Walk the main task using Tab and Shift+Tab, and each control’s expected activation keys. The focus order should follow the task; a focus indicator must remain visible. At AA, author-created content must not **entirely** cover the focused component (2.4.11); check sticky headers and footers after scrolling.
-
-For a modal, move focus inside on open. Tab should stay inside while modal, Escape should dismiss where appropriate, and focus should return to the trigger or a logical next control if the trigger vanished. Confirm the dialog name and that background content cannot be operated. Avoid custom select/date pickers unless the needed mouse, touch, and keyboard behavior is implemented.
-
-## Perception and input
-
-| Check | What to test |
-| --- | --- |
-| Contrast | Normal text: at least 4.5:1; qualifying large text: 3:1 (1.4.3, exceptions apply). Required non-text control/state indicators generally need 3:1 against adjacent colors (1.4.11). Measure actual composited colors. |
-| Size and reflow | Test 200% text enlargement (1.4.4) and 320 CSS px width equivalent for horizontal writing (1.4.10). A genuinely two-dimensional data table may scroll; the surrounding page need not. |
-| Target size | Check 24 × 24 CSS px or an applicable exception, including adequate spacing (2.5.8). A 44 px touch area is a useful larger target, not the AA minimum. |
-| Alternate input | For drag operations, provide a single-pointer alternative unless an exception applies (2.5.7). Do not expose essential actions only on hover or signal status only by color. |
-| Forms and authentication | Provide clear labels and actionable errors. Check repeated information in one process (3.3.7) and cognitive tests in authentication (3.3.8), including alternatives and exceptions. Support password managers and paste. |
-| Motion | Respect reduced-motion settings and preserve the information conveyed. Check whether moving or auto-updating content requires pause, stop, or hide controls. |
-
-Report observed failures, suspected defects, and untested behavior separately. Keyboard and screen-reader results are distinct. A source review, screenshot, or automated scan alone cannot establish full AA conformance.
+- Target applicable WCAG 2.2 Level A and AA criteria; use the [full criterion inventory](accessibility-criteria.md) for broad audits and exact W3C wording for exceptions and conformance decisions.
+- Reproduce the affected task before prescribing changes; record the route, state, input method, browser, assistive technology where used, and observed barrier.
+- Treat the [ARIA Authoring Practices Guide](https://www.w3.org/WAI/ARIA/apg/) as widget implementation guidance, not a conformance standard; select the exact [pattern](https://www.w3.org/WAI/ARIA/apg/patterns/) for the control being built.
+- Prefer native links, buttons, inputs, forms, headings, landmarks, and tables; a role alone does not supply keyboard behavior, state, an accessible name, or focus management.
+- Preserve a meaningful DOM reading order, heading hierarchy, relationships, and visible labels; CSS ordering must not create a conflicting reading or focus sequence.
+- Give icon-only controls meaningful accessible names, include the visible label in the accessible name, provide useful text alternatives, and hide purely decorative duplicates from assistive technology.
+- Supply captions, transcripts or equivalent alternatives, and audio description according to the media type and applicable criterion; a generic alternative-text label does not replace media alternatives.
+- Walk the primary task with Tab, Shift+Tab, and expected activation/navigation keys; allow keyboard users to reach, operate, and leave each control without time-sensitive keystrokes.
+- Keep focus visible and logically ordered; ensure sticky headers, footers, popovers, and banners do not entirely obscure the focused component at AA, and prefer fully visible focus where practical.
+- On opening a modal, give it a programmatic name, move focus to a sensible internal target, contain Tab while modal, prevent background interaction, support appropriate dismissal, and restore focus to the trigger or a logical successor.
+- Choose menu, listbox, combobox, tabs, tree, grid, or disclosure semantics from actual behavior; ordinary navigation is not automatically a menu, and a sortable table is not automatically an ARIA grid.
+- Use the existing accessible select/date/dialog primitive where possible; custom widgets must implement the selected pattern's keyboard, pointer, touch, naming, state, and focus behavior.
+- Announce important status changes without taking focus or reading every refresh; expose validation messages next to and programmatically associated with their fields, and preserve valid input after failure.
+- Measure actual composited text colors: normal text generally needs 4.5:1, qualifying large text 3:1; qualifying large text is at least 18 pt regular or 14 pt bold, with the criterion's exceptions applied explicitly.
+- Check required control, state, and graphical information for 3:1 non-text contrast against adjacent colors where applicable; color alone must not carry an instruction, selection, error, series, or status.
+- Test text enlargement to 200% and reflow at 320 CSS px equivalent for vertically scrolling content or 256 CSS px height for horizontally scrolling content; two-dimensional exceptions do not justify page-wide overflow.
+- Test user text-spacing overrides: line height 1.5 times font size, paragraph spacing 2 times, letter spacing 0.12 times, and word spacing 0.16 times, applying the relevant language/script exceptions.
+- Preserve zoom and supported orientation changes; never adopt an upstream `maximum-scale=1` or `user-scalable=no` suggestion that blocks enlargement.
+- Make additional hover/focus content dismissible, hoverable, and persistent where required; tooltips must not be the only source of essential instructions or controls.
+- Test pointer targets against 24 by 24 CSS px or a documented WCAG exception, including the exact spacing rule; 44 px is a useful larger design target, not the AA minimum.
+- Provide single-pointer alternatives to multipoint/path gestures and dragging where required; provide cancellation or undo for pointer activation and a non-motion alternative to device-motion controls.
+- Support voice and alternative input by retaining native semantics and matching visible labels to accessible names; do not force one input method when others can be supported.
+- Provide a way to disable or remap character-only shortcuts or restrict them to the focused component; do not intercept typing in text inputs.
+- Evaluate time limits, auto-updating content, moving/blinking content, flashes, and automatic audio against their exact criteria; reduced-motion support is useful but does not replace pause/stop/hide or flash requirements.
+- Preserve the information and final state when reducing motion; prefer a readable nonanimated transition rather than removing essential feedback.
+- Declare page and passage languages where needed; keep repeated navigation, equivalent controls, and repeated help mechanisms consistent without preventing user customization.
+- Avoid unexpected context changes on focus or input; explain submission/navigation effects beforehand when a control legitimately changes context.
+- Provide instructions, text errors, known correction suggestions, and suitable review/correction/reversal for consequential submissions; do not discard valid input because another field failed.
+- Avoid requiring repeated information within one process when it can be populated or selected, applying security, validity, and essential-purpose exceptions explicitly.
+- Support password managers, autofill, and paste; evaluate every authentication step for cognitive tests, allowed alternatives, assistance, and the exact exceptions in 3.3.8.
+- Separate observed failures, suspected defects, passes, not-applicable criteria with reasons, and untested behavior; a keyboard pass is distinct from a screen-reader pass.
+- A screenshot, source review, or clean automated scan cannot establish full AA conformance; assess complete pages, complete processes, supported technologies, and non-interference before making a conformance claim.
+- W3C-derived implementation material retains source/status/copyright and the [W3C Document License notice](accessibility-criteria.md); this guide supplements the official specification rather than replacing it.

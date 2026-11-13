@@ -1,18 +1,22 @@
-# Design systems and tokens
-
-Start in the repository, not with a new palette. Look at an adjacent screen, theme entry, CSS variables, token file, component imports, or `components.json`. Record what already owns type, spacing, surfaces, actions, focus, breakpoints, and density. Never introduce a second system to solve one screen.
-
-## Choose the component path
-
-| Existing system | Use | Avoid |
-| --- | --- | --- |
-| MUI | The installed theme, variants, slots, and accessible primitives. Check the installed version and existing wrappers. | Introducing shadcn/Tailwind to style a dialog or copying Material 3 specs over product conventions. |
-| shadcn/ui | Read `components.json`, the actual local component source, semantic CSS tokens, and an existing usage. Compose the shipped primitives; preserve keyboard and focus behavior when changing triggers. | Assuming an alias, Radix vs Base UI backend, or an upstream demo matches this checkout. Do not run a generator over customized components. |
-| Carbon / other design system | Use its existing component names, content rules, and densities. Extend an established variant before inventing one. | Mixing incompatible visual languages or importing a new system for inspiration. |
-| No system yet | Define the smallest set needed for the requested flow. Reuse native controls where they suffice. | Choosing a new dependency, font service, or registry without a project reason. |
-
-## A minimal design contract
-
-Name colors by purpose (canvas, surface, text, border, action, focus, error, warning, success). Check the actual foreground/background pairs in each supported theme. Define type roles for body, headings, labels, and numeric data; use tabular numerals where comparisons matter. Pick a spacing scale and a small set of control sizes and radii. Define pressed, focused, busy, disabled, selected, and invalid states where they change the component. Check narrow widths, long text, and RTL when supported.
-
-For example, a destructive button uses the existing danger token and focus ring. A failed save preserves the form and explains recovery; a red background alone does neither. Report which tokens or variants were reused and justify additions by a repeated need. If choosing the product’s direction is still an unanswered question, use [Design intelligence](design-intelligence.md); then apply the chosen direction through this existing system. No palette generator or search dataset is required.
+- Inspect adjacent screens, theme entry points, CSS variables, token files, component imports, and configuration before choosing new values; identify what owns type, spacing, surfaces, actions, focus, breakpoints, and density.
+- Preserve the existing design system and canonical design documents; do not introduce a second component library or token system for one screen.
+- In MUI, extend the installed theme, variants, slots, and existing wrappers; check its version before using APIs and do not impose shadcn/Tailwind or a different Material specification.
+- In shadcn, inspect `components.json`, aliases, actual local components, the Radix or Base UI backend, semantic tokens, and neighboring usage; use [shadcn](shadcn.md) for full component/registry/migration coverage.
+- In Carbon or another system, follow its established component names, content rules, densities, accessibility behavior, and extension points before inventing a variant.
+- Without a system, define the smallest reusable contract needed for the requested flow; prefer native controls and justify dependencies, external fonts, or registries by an actual requirement.
+- Name color tokens by purpose, including canvas, surface, text, border, action, focus, error, warning, and success; preserve primitive and semantic layers where the project uses them.
+- Evaluate real foreground/background pairs in every supported theme; do not equate a palette label, Pro Max score, APCA result, or vendor claim with WCAG conformance.
+- Define type roles for body, headings, labels, supporting text, and numerical data; record font family, fallback, weight, size, line height, and tracking where they affect implementation.
+- Use tabular numerals for changing or comparable values where useful, and preserve locale-aware numerals, dates, units, and bidirectional text.
+- Use a coherent spacing scale while retaining necessary optical exceptions; specify exact dimensions, gaps, padding, margins, container widths, and responsive changes for repeated patterns.
+- Keep control heights, radii, borders, shadows, elevation, icon sizing, and density consistent with the product; do not force every shape into the same card.
+- Define default, hovered, pressed, focused, busy, disabled, selected, checked, and invalid states only where meaningful; distinguish a visual variant from an interaction or permission state.
+- Preserve accessible behavior when changing triggers, portals, slots, nested controls, or overlay composition; a restyled primitive still needs its focus, keyboard, and naming contract.
+- Specify responsive behavior from content constraints, using logical properties and intrinsic layout where practical; inspect long labels, realistic values, narrow widths, supported RTL, and zoom.
+- Keep motion tokens tied to purpose, frequency, interruption, and reduced-motion behavior; a timing scale is not an instruction to animate every transition.
+- Keep tokens, component variants, examples, and the project's canonical documentation aligned when the requested change affects shared rules; avoid competing master design documents.
+- If the canonical document is `design/design.md` and uses one-line policy bullets, preserve that format and record measured values there; do not load Figcraft or create extra documents merely because this skill is active.
+- Document only a repeated need or a deliberate system decision as a new token/variant; a one-off layout exception does not always need a new abstraction.
+- A danger token communicates emphasis, while clear consequences and recoverable behavior make the action usable; a red failed-save surface alone does neither.
+- If direction is still unresolved, use [Design intelligence](design-intelligence.md) for alternatives and evidence, then map the chosen result onto this contract instead of replacing it wholesale.
+- Treat catalog output as candidates, preserve project-approved decisions, and reconcile conflicts explicitly; no search or generator is required for a routine system-consistent edit.

@@ -1,17 +1,24 @@
-# Implement and refactor without changing the product contract
-
-Inspect a neighboring component, its theme, its tests, and the installed framework version. Keep API contracts, server-side authorization, validation ownership, locale, and navigation intact. A disabled button is not authorization. Pick the smallest component boundary that owns the behavior.
-
-## All web stacks
-
-Use a link for navigation, a button for an action, and a form for submission. Persist filters, sort, and pagination in the URL when users need refresh, Back, or shareable views. Do not put sensitive form data there. Prefer intrinsic CSS layout and logical properties over measuring the DOM or hard-coding left/right. Test wrapping, long IDs, translated strings, and zoom. Reserve space for media and delayed content to prevent layout shift.
-
-List only consequential states: loading vs refreshing; empty vs no matches; invalid vs permission denied; pending vs confirmed. Match feedback to the backend outcome. Preserve drafts across recoverable failures and do not change backend contracts as a side effect of UI work.
-
-## React / Next.js only: pick the right Vercel lens
-
-**Composition patterns** address painful APIs, not slow rendering. When several booleans create contradictory states, name the supported variants or compose existing primitives through children/slots. Keep a simple button simple. Lift state only to the closest owner that needs it; do not wrap the app in context for a local interaction.
-
-**React best practices** address concrete costs. Trace the actual wait, payload, or render. Parallelize independent requests, not dependent or authorization-gated ones. Avoid deriving renderable data through mirrored state and effects. Use stable row keys. In Next.js, keep client boundaries near the interaction where supported by the installed router. Split expensive, rarely used UI only when it improves the initial path. For large tables, measure before adding memoization or virtualization; consider server pagination and filtering first.
-
-Use project lint, typecheck, tests, and browser inspection already available. Evidence of a speedup is a comparable trace or measurement, not the presence of `useMemo`. Do not install another tool to satisfy this guide.
+- Inspect the affected route, a neighboring component, its theme and tests, the package manifest, and actual framework versions before changing implementation.
+- Preserve API contracts, server-side authorization, validation ownership, locale, navigation, and product behavior; disabling a button is not authorization.
+- Choose the smallest boundary that owns the behavior; a request to implement a design does not authorize unrelated redesign, dependency migration, or backend changes.
+- Use native links for navigation, buttons for actions, and forms for submission; provide accessible names, labels, focus behavior, and correct keyboard activation.
+- Preserve shareable filters, sort, and pagination in the URL when refresh, Back, or sharing needs them; never put sensitive form data or credentials there.
+- Prefer intrinsic CSS layout and logical properties over avoidable DOM measurement or hard-coded physical directions; test wrapping, long IDs, translations, supported RTL, and zoom.
+- Reserve space for media and deferred content, provide image dimensions/aspect ratios, and choose loading priority from actual viewport importance to avoid layout shifts and unnecessary loading.
+- Model meaningful states explicitly: initial loading versus background refresh, empty versus no matches, invalid versus denied, pending versus confirmed, and failure versus unknown outcome.
+- Preserve drafts and valid input across recoverable failures, associate errors with fields, and make feedback reflect backend results rather than optimistic assumptions.
+- Prevent stale requests from overwriting newer state; clean up subscriptions and asynchronous effects and preserve cancellation/retry semantics supported by the application.
+- Compose existing primitives and semantic tokens; inspect local shadcn source when applicable rather than overwriting customized components with a generator.
+- For React APIs with contradictory boolean combinations, use [Component composition](component-composition.md) for the complete architecture/state/pattern guidance and examples; keep a simple component simple.
+- Lift state only to the closest owner that needs it, preserve explicit public variants, and avoid adding application-wide context for a local interaction.
+- For React/Next.js costs, use [React performance](react-performance.md) to select the relevant full rule and example; composition is not itself evidence of a speedup.
+- Trace actual waits, payloads, re-renders, and layout work; parallelize only independent authorized operations and preserve required validation or authorization dependencies.
+- Derive renderable data during render when appropriate rather than mirroring it through effects, use stable record keys, and evaluate memoization against a measured cost.
+- In Next.js, check the installed router and version, keep client boundaries close to the interaction, preserve serialization and caching semantics, and authenticate server mutations on the server.
+- Split expensive rarely used interfaces when it improves the initial path; check loading/error fallbacks and avoid moving a bottleneck into a later interaction.
+- For large results, evaluate server pagination/filtering and the actual interaction before introducing virtualization or memoization; verify selection, focus, and row identity if introduced.
+- React 19, Activity, effect events, Next.js helpers, and Motion APIs are version-specific; do not upgrade dependencies or paste incompatible examples solely to follow a reference.
+- In non-React stacks, apply only framework-neutral principles and the matching documented stack guidance; do not impose React abstractions on another runtime.
+- Use existing project checks, fixtures, preview, and browser facilities; a comparable measurement demonstrates performance improvement, while adding `useMemo` does not.
+- Keep project design rules synchronized with intentional shared UI changes, and leave the installed skill and upstream files untouched.
+- For React Native or supported React View Transitions, use the complete [Vercel platform catalog](../upstream/vercel/CATALOG.md) and select the relevant rule/chapter; distinguish native layout/measurement and navigation from web behavior, and verify installed API support before applying examples.

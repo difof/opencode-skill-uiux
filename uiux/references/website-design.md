@@ -1,44 +1,32 @@
-# Website design and delivery
-
-Use this guide for a requested website, landing page, portfolio, or interactive presentation, especially an open-ended brief. It adapts the design and delivery approach of ChatGPT Work's **Sites** skill and its presentation-led design reference into ordinary project work. It does not install Sites, add its hosting tools, or select ChatGPT models. For a dashboard or application workflow, start with the relevant task guide instead of applying a marketing-page structure.
-
-## Establish the visitor's purpose
-
-- Name the audience, what visitors need to understand or accomplish, and the useful next action. Identify the subject's concrete material: product screens, work samples, a service process, an event program, or an actual demonstration.
-- For an existing site, inspect the relevant routes, brand, content, component system, and deployment context. Preserve those decisions unless changing them is the assignment. Use the requested framework or existing stack; do not introduce another framework for this guide.
-- Distinguish a design proposal from a request to implement. Keep a bounded edit bounded. For a new simple presentation or browser-local interaction, consider plain HTML/CSS/JavaScript when the project permits it; server behavior needs an actual requirement.
-
-## Shape the whole experience
-
-Outline a short progression before styling: establish relevance, explain the specifics, supply useful evidence or exploration, then make the next action clear. Select sections for the visitor's questions rather than filling a fixed landing-page template.
-
-- Give each section a different information job. Remove a section that only restates the pitch. A polished hero followed by interchangeable benefit cards is not a complete explanation.
-- Make the subject tangible through examples, product views, portfolio details, comparisons, process steps, or a useful interactive demonstration. Choose the forms that fit the actual material, not all of them.
-- Let layout support the content: a worked example may need a wide demonstration, a comparison may need aligned columns, and a story may need editorial pacing. Do not force every section into the same card grid or add movement without a communicative purpose.
-- Fill an open creative brief with consistent concepts and copy, while respecting supplied wording and content constraints. Verify factual claims about real people, organizations, products, and services. Never fabricate testimonials, customers, results, usage statistics, or implemented capabilities.
-- Keep illustrative data and simulated behavior distinguishable from real evidence. An interactive mockup is not a working integration. Presentation depth does not authorize adding accounts, databases, payments, notifications, or unrelated application features.
-
-## Integrate meaningful assets
-
-Use imagery when it helps recognition, explanation, evidence, or the intended atmosphere. Give each image or illustration a job before acquiring it. Start independent asset work once the brief is clear, using available and permitted tools; do not invent an unavailable image service.
-
-Integrate actual assets into the page before judging the composition. Check crop, resolution, aspect ratio, visual focus, loading behavior, alternative text, and narrow-screen treatment. Follow the project's asset and font policies; do not introduce remote fonts, hotlinked images, or new dependencies by default. If a required asset is unavailable, disclose that specific gap instead of presenting a placeholder as finished work.
-
-Use [Visual direction](visual-direction.md) only for an unresolved composition or identity decision; use the existing component system for ordinary implementation choices.
-
-## Implement the requested experience
-
-Build one complete visitor path: meaningful navigation, the primary action, and the feedback or recovery relevant to it. Links need real destinations; forms and interactive controls need their requested behavior. Do not make a decorative button imply an unavailable capability.
-
-- Replace starter titles, descriptions, placeholder copy, and unrelated demo metadata. Keep the identity and language consistent across the navigation, main content, and footer.
-- Use the project's existing commands and dependencies. Start missing-dependency preparation only when necessary, avoid competing installers, and wait before executing dependent work.
-- Preserve readable content and usable actions across narrow and wide layouts. Maintain semantic structure, keyboard operation, visible focus, motion preferences, and meaningful loading/error/empty states where applicable.
-- Complete the requested behavior and assets in a focused pass, then revise concrete defects or unmet requirements. Do not repeatedly restyle the whole site without evidence.
-
-## Verify and deliver
-
-Use the existing preview and browser facilities when available; never install a browser, MCP, or service merely to satisfy this guide. Inspect the actual rendered route, not only the source. Check the first-screen hierarchy, section progression, realistic content, image crops, layout transitions, overflow, navigation, and the primary action at relevant sizes.
-
-Run the existing build or checks needed for the change. Reuse successful evidence while its inputs remain unchanged; avoid redundant full-suite runs for a small content or style correction. Use [Verification](verification.md) for an unresolved interaction or responsive check.
-
-Report exactly what works and what was observed. Without rendered evidence, mark visual verification incomplete. A build succeeding does not prove working forms, integrations, or public deployment. Publish only when authorized, through the project's own workflow, and preserve its audience and access settings. Return the actual project/preview/deployed result appropriate to the request; never substitute a generated URL or imply that this guide grants hosting capability.
+- Use this guide for a requested website, landing page, portfolio, or interactive presentation; it is an original portable adaptation of applicable ChatGPT Work Sites design and delivery guidance, not its hosting runtime or model selection.
+- For a dashboard or application workflow, start with the matching task guide; do not force a marketing narrative onto an operational interface.
+- Name the audience, what visitors need to understand or accomplish, and the useful next action; identify concrete material such as product screens, work samples, process steps, an event program, or a demonstration.
+- For an existing site, inspect the relevant routes, brand, content, component system, identity, audience/access settings, and delivery context; preserve them unless changing them is the assignment.
+- Distinguish a design proposal from implementation, keep bounded edits bounded, and honor the requested framework or existing stack.
+- For a new simple presentation or browser-local interaction, consider plain HTML/CSS/JavaScript where the project permits it; server behavior needs an actual requirement.
+- For new project work, use an appropriate isolated project directory; do not copy another project's identities, credentials, Git state, private runtime data, or unrelated configuration from a template.
+- Outline the full visitor progression before styling: establish relevance, explain specifics, supply useful evidence or exploration, and make the next action clear.
+- Give every section a distinct information job; remove repeated pitches and filler rather than filling a fixed template with interchangeable feature cards.
+- Make the subject tangible with relevant examples, product views, portfolio details, comparisons, process steps, or a useful demonstration; choose forms suited to the real material.
+- Let composition and interaction support that material: a worked example, aligned comparison, and editorial story need different structures, not repeated card grids or decorative activity.
+- Fill creative gaps with coherent concepts and copy while respecting supplied wording and content constraints; verify claims about real people, organizations, products, and services.
+- Never invent testimonials, customers, results, usage statistics, or implemented capabilities; distinguish illustrative data and simulated behavior from real evidence.
+- Presentation depth does not itself authorize accounts, databases, payments, notifications, external integrations, or unrelated application features.
+- Give imagery a job in recognition, explanation, evidence, or atmosphere before acquiring it; start independent asset work once its brief is clear using available authorized tools.
+- Integrate actual assets before judging composition; check crop, resolution, aspect ratio, focal subject, loading priority, alternative text, and narrow-screen behavior.
+- Follow project asset/font policies and relevant usage rights; do not introduce hotlinks, external fonts, new dependencies, or an unavailable image service by default.
+- Disclose a required asset that remains unavailable rather than presenting a placeholder as finished work; preserve useful fallbacks and layout dimensions.
+- Use [Visual direction](visual-direction.md) only for an unresolved identity or composition decision; ordinary implementation uses the existing component system.
+- Build one complete visitor path with meaningful navigation, the primary action, and relevant feedback/recovery; links need real destinations and controls need their requested behavior.
+- An interactive mockup is not a working integration, and a decorative button must not imply an unavailable capability.
+- Replace starter titles, descriptions, placeholder copy, demo metadata, and unrelated branding; keep identity and language consistent in navigation, main content, and footer.
+- Use existing commands and dependencies; prepare missing dependencies only when needed, run one installer, keep its inputs stable, and wait before dependent work.
+- Parallelize independent asset/source preparation when useful, while one owner coordinates conflicting file changes, identity, validation, and delivery.
+- Keep layouts responsive, text readable, and interactions accessible, including semantics, keyboard, focus, motion preferences, and applicable loading/error/empty states.
+- Implement the requested behavior and assets in a focused pass, then revise concrete defects or unmet requirements rather than repeatedly restyling the entire site.
+- Use existing preview and browser facilities where available; show a usable preview when supported and useful, but do not install a browser, MCP, service, or hosting platform merely to satisfy this guide.
+- Inspect the actual route for first-screen hierarchy, section progression, realistic content, crops, layout transitions, overflow, navigation, and primary-action behavior.
+- Run the project's necessary checks/builds, resolve dependent work before final packaging, and reuse valid earlier results while their inputs remain unchanged.
+- Use [Verification](verification.md) for unresolved interaction or responsive checks; report exactly what was observed and mark rendered verification incomplete when unavailable.
+- Follow the project's authorized publication workflow and preserve audience/access settings; reconcile uncertain creation or deployment attempts before retrying, and continue known pending work rather than duplicating it.
+- Return the actual project, preview, saved result, or verified deployed URL appropriate to the request; never invent a URL or claim that a successful build proves working integrations or public deployment.

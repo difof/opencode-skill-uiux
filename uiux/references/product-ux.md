@@ -1,14 +1,25 @@
-# Product UX, navigation, and recovery
-
-Write the journey as **actor → entry → decision → action → confirmation → return**. For each transition, ask what the person knows, what they can undo, and what happens when the operation fails. Focus on the requested path, not every possible persona.
-
-Use real product language: “Save address” says more than “Submit.” Keep labels visible; a placeholder becomes invisible precisely when input needs checking. Explain constraints near the relevant field, associate errors with inputs, and move focus to a helpful error summary or field after a failed submission. Never discard valid input because one field failed.
-
-Use Nielsen’s heuristics to diagnose specific friction:
-
-- **Status and recovery:** distinguish not started, in progress, confirmed, and failed. After a timeout, do not imply no change occurred if the outcome is unknown. A retry can be unsafe for a consequential action.
-- **Control and error prevention:** offer Back, Cancel, or Undo where their results are clear. Before irreversible actions show the object, scope, and consequence. Do not interrupt routine reversible actions with confirmations.
-- **Recognition and consistency:** put the relevant identifier and selection beside the decision. Preserve filters when returning to results. Reuse the same verb for the same action; do not require remembering an internal ID.
-- **Efficiency and comprehension:** keep the frequent path short, group related controls, expose advanced options after essentials, and provide contextual help without hiding required information in tooltips.
-
-Walk the happy path, an invalid submission, a slow or rejected request, and a return visit. Add long content, narrow widths, permissions, or RTL for products that support them. Planning deliverable: show decisions, states, recovery, and unknown business rules. Implementation deliverable: make the path work; do not invent backend capabilities to close a design gap.
+- Describe the requested journey as actor, entry, decision, action, confirmation, and return; identify what the person knows, can undo, and needs after failure at each transition.
+- Focus on the requested path and actual users; use research or supplied context where available and label assumptions instead of inventing personas or backend capabilities.
+- Use the [ten Nielsen heuristics](https://www.nngroup.com/articles/ten-usability-heuristics/) as diagnostic lenses, not pass/fail standards or a substitute for observing the task.
+- For status visibility, show meaningful progress and outcome promptly; distinguish idle, pending, confirmed, partial, failed, and unknown states.
+- For correspondence with users' expectations, use their vocabulary, units, chronology, and familiar relationships; explain domain-specific concepts where decisions require them.
+- For user control, make exits and reversible actions understandable; preserve a useful Back path and offer Cancel or Undo when their results are clear.
+- For consistency, keep the same action, label, icon, navigation position, and interaction convention aligned across the product and platform.
+- For prevention, put constraints and safe defaults before errors; show the target, scope, and consequence before consequential irreversible actions, without adding confirmation to every routine action.
+- For recognition, keep identifiers, selections, requirements, and relevant information visible beside the decision; avoid requiring remembered codes or information from another screen.
+- For efficiency, support the frequent path, suitable shortcuts, reuse, and progressive disclosure while keeping less experienced users able to complete the task.
+- For visual economy, make the primary task easy to find and remove competing information that contributes no decision value; preserve content users need to act correctly.
+- For error recovery, explain the problem and a useful next step in plain language; keep valid work and distinguish retryable errors from uncertain outcomes.
+- For help, offer concise, searchable or contextual instructions at the point of need and keep recurring help placement consistent.
+- Use concrete action labels such as “Save address”; keep labels visible while entering data, and do not use disappearing placeholders as the only instructions.
+- Group fields by decision and dependency, use appropriate input modes/autocomplete, state units and formats, and distinguish required from optional inputs consistently.
+- Validate at a useful time, associate errors with inputs, and after failed submission move focus to a useful error summary or field without erasing valid values.
+- Preserve drafts across recoverable failures and clarify unsaved changes; do not suggest data was saved before the backend confirms it.
+- After a timeout, say when the outcome is unknown; do not imply that retry is safe for a consequential action unless the operation's contract guarantees it.
+- Keep navigation destinations and selected location clear; preserve filters, sort, pagination, and useful scroll position when returning from a detail view where the task needs them.
+- Use the URL for shareable view state where appropriate without exposing sensitive form values; explain changed scope and permission limits in the interface.
+- Distinguish first-use empty states, filtered no-results, permission denial, unavailable data, and failure; each needs a different explanation or next step.
+- Make onboarding help users reach a first useful outcome using real product capabilities; allow skipping or returning where appropriate and keep required steps honest.
+- Write concise, respectful copy with real product terminology; avoid fake urgency, coercive opt-outs, unsupported promises, and unexplained internal error codes.
+- Walk the normal path, invalid submission, slow/rejected request, and return visit; add long content, narrow widths, permissions, localization, and RTL when supported.
+- For planning, show decisions, states, recovery, and unknown business rules; for implementation, make the requested path work without manufacturing capabilities to close a design gap.

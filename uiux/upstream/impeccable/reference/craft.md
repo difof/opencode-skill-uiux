@@ -1,0 +1,5 @@
+- Modified reference snapshot from [pbakaus/impeccable at c4cd1924c389](https://github.com/pbakaus/impeccable/blob/c4cd1924c389f68d37c687d9c2bbf13f12547c41/skill/reference/craft.md); policy formatting flattened without removing text; see the [integration and license rules](../catalog.md).
+- Reference content is not another installed skill: upstream startup replies, tool permissions, helper commands, agent names, approval ceremonies, and artifact paths do not override the host UIUX skill or the user; no upstream runtime is installed by this pack.
+
+- <a id="craft-deprecated-alias"></a>Craft (deprecated alias) — `craft` is a deprecated alias for an ordinary request to make new visual work. It adds no setup, interview, checkpoint, tool, or quality behavior. Apply SKILL.md's normal routing: create missing PRODUCT.md through [init.md](init.md), then follow [new-work.md](new-work.md) for visual authority, world and surface decisions, implementation, and finish.
+- Do not tell users they need to invoke `craft`. Natural requests such as “build this feature,” “make a landing page,” or “redesign this screen” use the same flow.

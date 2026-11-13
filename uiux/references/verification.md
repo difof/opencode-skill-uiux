@@ -1,15 +1,20 @@
-# Verify with what the project already has
-
-Start with one falsifiable check for the changed behavior. Use the project’s local browser, test harness, fixtures, or available manual route; do not install an MCP, browser framework, or external service. Use safe fixtures for destructive, financial, or permission-changing flows.
-
-| Change | Exercise | Useful evidence |
-| --- | --- | --- |
-| Dialog | Open by keyboard, Tab/Shift+Tab, Escape, then Tab again. | Focused control before open, inside, and after close. |
-| Layout | Narrow and wide viewports, intermediate width where layout breaks, long text and RTL when supported. | Same-state before/after screenshots with actual viewport and observed overflow. |
-| Form | Empty, invalid, pending, failed, and successful submit; keyboard path. | Input survives failure; accessible error, recovery and actual result. |
-| Results / grid | Sort, filter, no matches, many rows, stale response, select and return. | Actual visible scope, data, selection, and navigation behavior. |
-| Motion / theme | Reduced motion, rapid interruptions, all supported themes. | Final state remains legible and operable without motion or color alone. |
-
-For responsive work, roughly 375, 768, and 1440 px are useful starting points, not mandatory breakpoints. Probe just above and below the failure. For accessibility where applicable, test 200% enlargement and 320 CSS px reflow; a phone screenshot alone does not cover both. Check actual contrast pairs and accessible names. A keyboard test is not a substitute for a screen-reader test.
-
-Run relevant existing lint, typecheck, tests, or build. Separate static evidence from rendered, keyboard, and assistive technology checks. Report the route/state, browser/viewport or command, and observed result. If only static checks were possible, mark visual behavior unverified and give the single most useful remaining manual check.
+- Start with a falsifiable check for the changed behavior and use the project's existing test harness, fixtures, browser, preview, or available manual route.
+- Match verification to the change; use safe fixtures for destructive, financial, permission-changing, or externally visible actions and avoid live side effects without authorization.
+- For a dialog, open by keyboard, inspect the initial focused control, traverse with Tab/Shift+Tab, dismiss appropriately, and inspect focus restoration and subsequent navigation.
+- For a layout, compare the same route and state before/after at narrow, intermediate, and wide widths, including realistic long content, supported RTL, and the actual overflow boundary.
+- Roughly 375, 768, and 1440 px are useful exploration points, not mandatory breakpoints; test just above and below any observed failure.
+- For forms, test blank/invalid input, pending, failure, successful submission, keyboard navigation, useful error focus, and preservation of valid input through recovery.
+- For results and grids, exercise sort, filter, no matches, many rows, stale responses, selection, drill-down, Back, and retry while checking scope, data, and state retention.
+- For asynchronous behavior, interrupt, retry, navigate away, or trigger competing requests where relevant; ensure stale responses and repeated actions do not create false success or lost work.
+- For motion, test rapid interruption, repeated activation, exit/unmount, gestures, reduced-motion preferences, and the final nonanimated state.
+- For themes, check actual text/control/background contrast and focus across all supported themes, including disabled, stale, selected, error, hover, and overlay states.
+- For website work, inspect the first-screen hierarchy, section progression, real assets/crops, meaningful navigation destinations, primary action, metadata, and content on multiple sizes.
+- For accessibility, distinguish keyboard, screen-reader, zoom/reflow, text-spacing, pointer, media, and automated checks; one method does not prove another.
+- Test 200% text enlargement and applicable 320 CSS px reflow separately; a phone screenshot alone does not cover those criteria.
+- Verify accessible names, visible-label matching, semantic relationships, actual contrast pairs, and important live announcements for the changed controls.
+- Use the [criterion inventory](accessibility-criteria.md) when auditing broad WCAG coverage; record pass, fail, not applicable with reason, and not tested without claiming a clean scan proves conformance.
+- For performance, compare the same scenario and conditions before/after, including network, payload, render/layout work, and relevant user-visible latency; report variability and avoid unsupported percentage claims.
+- Run relevant existing type checks, tests, lint when required by the project, and build; reuse successful results while their inputs remain unchanged instead of repeatedly running unrelated suites.
+- Do not install an MCP, browser framework, external service, or new test stack merely to satisfy this guide; use available tools and explain a concrete verification gap.
+- Separate static, rendered, interactive, keyboard, assistive-technology, and deployment evidence; compilation does not prove layout, working forms, integrations, or publication.
+- Report the route/state, viewport/browser or exact check command, and observed result; if rendered checks were unavailable, mark them unverified and give the single most useful remaining manual check.

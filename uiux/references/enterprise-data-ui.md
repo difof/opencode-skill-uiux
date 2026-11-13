@@ -1,17 +1,22 @@
-# Enterprise and data-heavy UI
-
-Start with the operator’s decision: identify a failing service, compare settlements, approve a batch, or recover from an error. Put the evidence for that decision together. Choose a table for row-by-row comparison, a chart for a trend, and a detail view for an individual record. Do not make users compare values across a wall of cards.
-
-## A table that survives real data
-
-- Keep scope visible: tenant/environment, active filters, time range and zone, count, and freshness. Provide a way to clear filters and preserve a useful return position after drilling down.
-- Name units and currencies. Align comparable numbers; distinguish zero, missing, stale, and unauthorized. Make sort indicators reflect the real sort order. Clarify whether selection means visible rows, the page, or all matching results.
-- Use real headers and row identifiers. A sortable table does not automatically need an ARIA grid. Preserve header/cell associations and keyboard access if virtualization is actually needed.
-- Show distinct states: no records yet → creation or explanation; filters match nothing → clear filters; permission denied → access guidance; refresh failed → last known time and retry. Never turn a failed fetch into a zero balance.
-- For bulk actions show target scope and operation before submission; distinguish accepted, pending, partial failure, and complete. A retry must not imply repeat execution is safe unless the API guarantees it.
-
-## Charts, density, and responsive behavior
-
-Show units, aggregation, time window, and source. Add text or a shape to status colors. Use realistic, non-sensitive examples for mockups. Never fabricate live status, totals, or timestamps. Keep primary identifiers and actions accessible at narrow widths; a table may have its own scroll container without causing the whole page to overflow. Test long IDs, large values, and translations. In supported themes, inspect low-contrast separators and stale/disabled states.
-
-A useful verification: sort → filter → select rows → open a record → go Back. Check which filters, sort, page, and selections survive and whether the result still describes the same records.
+- Start with the operator's decision, such as locating a failing service, comparing settlements, approving a batch, or recovering an operation; bring the evidence for that decision together.
+- Choose a table for row comparisons, a chart for a trend or relationship, and a detail view for one record; do not spread comparable values across unrelated cards.
+- Keep tenant/environment, active filters, time window, timezone, result count, aggregation, and freshness visible when they change the interpretation of data.
+- Distinguish zero, missing, unavailable, stale, partial, and unauthorized values; a failed fetch must never become a zero balance or a fabricated success.
+- Label units and currencies, align comparable numbers, apply locale formatting, and preserve precision required for the decision; do not round away a meaningful discrepancy.
+- Give rows durable identifiers, real headers, and correct header/cell associations; sorting does not by itself require an ARIA grid.
+- Make the displayed sort indicator, default order, secondary sort keys, and stable pagination match the actual query; keep server and client sorting/filtering contracts clear.
+- Make selection scope explicit: one row, visible rows, this page, or all matching results; disclose exclusions and changes when filters or data updates alter the selection.
+- Show active filters, a useful clear/reset action, and distinct first-use empty, no-match, denied, failed-refresh, and partial-result states with appropriate next actions.
+- Preserve useful filters, sort, page, and return position through drill-down and Back; clarify when the refreshed result refers to a different set of records.
+- For bulk actions, show the target scope and operation before submission; distinguish accepted, queued, running, partial failure, completed, cancelled, and unknown outcomes where the backend supports them.
+- Provide item-level failures and recovery for partial results when possible; never imply repeat execution is safe unless the API guarantees retry semantics.
+- Use clear error/retry behavior without erasing last-known data; show its actual observation time and distinguish current from cached values.
+- For charts, choose a mark that supports the comparison, label units/aggregation/time/source, disclose truncation or nonlinear scales when material, and avoid decorative depth or color that distorts the reading.
+- Use color together with text, position, shapes, or patterns; provide a usable textual summary or data alternative for essential chart information and accessible interaction for drill-down.
+- Avoid misleading axes, inconsistent scales, unexplained missing intervals, or overplotted series; preserve truthful comparisons when switching chart types or time windows.
+- Design density around scanning and action frequency, keeping key identifiers and row actions discoverable; separate destructive operations from frequent inspection where misclicks are plausible.
+- Prefer pagination or server filtering when appropriate before adding virtualization; if virtualization is needed, retain keyboard access, stable row identity, focus, selection, and assistive-technology relationships.
+- Keep a table's necessary two-dimensional scrolling inside its own region while surrounding controls reflow; preserve primary identifiers and required actions at narrow widths.
+- Test long IDs, large and negative values, translations, high row counts, stale responses, supported RTL, and every supported theme; inspect subtle separators and disabled/stale states.
+- Use realistic non-sensitive fixtures and clearly identified demo data; never fabricate live status, balances, totals, or timestamps.
+- Verify sort, filter, select, open record, Back, refresh, and retry in sequence; confirm the visible scope, records, selections, and feedback remain consistent.

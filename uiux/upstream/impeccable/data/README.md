@@ -1,0 +1,9 @@
+- This optional reference data comes from the same pinned Apache-2.0 Impeccable snapshot as the [catalog](../catalog.md); it installs no command, launcher, detector, or font.
+- [command-metadata.json](command-metadata.json) preserves all 24 upstream action descriptions and argument hints as data; the host skill does not register these commands.
+- [font-catalog.json](font-catalog.json) is a readable projection of all 3076 indexed font/weight rows, covering 1807 families; it retains family, weight, category, and variable-font metadata for offline shortlisting.
+- [font-index.json](font-index.json) preserves the complete original schema, reference text, sizes, feature names, category list, and encoded measurement fingerprints; use it only when exact upstream font-matching data is relevant, rather than loading a large index for ordinary UI changes.
+- The readable catalog is derived from source row positions 0–3 with category indices resolved through the source category list; original measurement vectors remain unchanged in the raw index.
+- Encoded fingerprints are measurements of the upstream reference text at the listed sizes, not universal similarity scores or a guarantee of target-browser rendering; no font-matching runtime is included.
+- [font-index-failures.json](font-index-failures.json) preserves upstream measurement failures so the indexed set is not mistaken for complete font coverage.
+- Metadata does not include font binaries or grant font-use rights; check the actual font license, glyph coverage, language support, variable axes, loading strategy, fallback, and rendered metrics before use.
+- Prefer the project’s existing approved fonts unless the task authorizes a typography change; compare real content and responsive layouts before adopting a catalog candidate.

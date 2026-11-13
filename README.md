@@ -1,27 +1,27 @@
-# opencode-skill-uiux
-
-One opt-in skill for designing, implementing, and reviewing web interfaces in **OpenCode 2**. Mention `@uiux` when you need it. It stays off the model’s advertised skill list otherwise. No MCP, extra agent, package install, or runtime fetch.
-
-```text
-@uiux Audit the checkout dialog for keyboard access. Report findings; don’t edit.
-@uiux Build a compact incident table using our existing MUI theme. Keep filters on Back.
-```
-
-The [skill entry point](uiux/SKILL.md) selects one local guide for the task and reads more only for a concrete unanswered question. Accessibility fixes, product flows, dense data screens, implementation, visual review, and motion retain their focused guides. [Standards and credits](uiux/references/standards-and-sources.md).
-
-- [Website design](uiux/references/website-design.md) adapts ChatGPT Work’s Sites design guidance: complete visitor journeys, purposeful sections, concrete imagery/examples, grounded copy, working interactions, and proportionate delivery checks. It uses the project’s tools and stack; it does not install ChatGPT hosting or model capabilities.
-- [Design intelligence](uiux/references/design-intelligence.md) expands UI UX Pro Max into a product-specific decision workflow for patterns, styles, palettes, typography, density, motion, locale, and stack constraints. It preserves established systems and treats catalog preferences as hypotheses, not requirements.
-
-These are local syntheses inside one skill. Upstream installers, search engines, scripts, and datasets are not bundled or fetched during use. The Figcraft pack remains independent: `@uiux` does not load its skill or execute its commands.
-
-## Install
-
-```sh
-git clone https://github.com/difof/opencode-skill-uiux.git
-cd opencode-skill-uiux
-./install.sh --global                 # or: ./install.sh --project /path/to/app
-```
-
-The installer symlinks only `uiux/`. It is safe to rerun and refuses to replace another installation. Keep the clone in place; `git pull --ff-only` updates the linked files. To uninstall, remove only the `uiux` symlink from the global or project skills directory.
-
-[OpenCode’s manual-invocation flag](https://opencode.ai/v2/docs/skills) hides this skill from normal discovery; it is not an access-control rule and does not hide separately installed upstream skills.
+- This package provides one opt-in `uiux` skill for interface design, implementation, critique, accessibility, and task-specific upstream references in OpenCode 2; invoke it explicitly with `@uiux`.
+- The [entry point](uiux/SKILL.md) is a compact flat bullet list that chooses a local guide; full rule explanations, code examples, catalogs, migrations, and exceptions load only when relevant to the current task.
+- Example: `@uiux Audit the checkout dialog for keyboard access. Report findings; don't edit.`
+- Example: `@uiux Improve this operations table using our existing component system. Preserve filters when returning from a record.`
+- Example: `@uiux Compare two appropriate directions using the offline Pro Max catalogs, then incorporate accepted rules into our existing design document.`
+- [Website design](uiux/references/website-design.md) adapts ChatGPT Work Sites guidance into a complete visitor experience with grounded content, meaningful assets, scoped implementation, and honest delivery evidence; provider-specific models, hosting APIs, credentials, and infrastructure are not part of this package.
+- [Design intelligence](uiux/references/design-intelligence.md) includes the full pinned UI UX Pro Max runtime and catalogs: 12 search domains, 22 stacks, 1,278 stack guidelines, style/product/palette/type/chart/motion recommendations, RTL filtering, and design-system generation.
+- Pro Max runs offline with the available Python 3 standard library; use `python3 -B` as documented, default to stdout, and keep all project outputs outside the static skill.
+- [shadcn](uiux/references/shadcn.md) routes the complete main skill, component/registry/theming/showcase references, helper examples, and separate Radix-to-Base migration guidance.
+- [React performance](uiux/references/react-performance.md) retains all 70 Vercel rules and examples; [Component composition](uiux/references/component-composition.md) covers all 8 patterns; the [platform catalog](uiux/upstream/vercel/CATALOG.md) adds 36 React Native rules and five React View Transition chapters.
+- [Visual direction](uiux/references/visual-direction.md), [Interaction and motion](uiux/references/interaction-motion.md), and [Review](uiux/references/review-protocol.md) route the complete scoped Anthropic frontend-design, Impeccable, Emil, and Web Interface Guidelines material.
+- [Accessibility](uiux/references/accessibility.md) supplies practical task checks, while the [55-criterion inventory](uiux/references/accessibility-criteria.md) covers WCAG 2.2 Level A/AA audit scope without pretending that a source review or automated scan establishes conformance.
+- [Product UX](uiux/references/product-ux.md), [Enterprise data UI](uiux/references/enterprise-data-ui.md), [Design system](uiux/references/design-system.md), [Implementation](uiux/references/implementation.md), and [Verification](uiux/references/verification.md) preserve focused product guidance alongside the detailed sources.
+- The [source inventory](uiux/upstream/sources.json) records pinned revisions, original/local hashes, every scoped source file, topic coverage, transformations, licensing, and explicit exclusions; [Standards and sources](uiux/references/standards-and-sources.md) explains applicability and precedence.
+- Active policy prose uses flat one-line bullets; source prose is flattened without removing words where suitable, while code, meaningful examples/tables, and license text retain their necessary structure.
+- Upstream entry points are reference files named `overview.md`; compiled agent guides are renamed too, so the corpus does not install extra discoverable skills or nested agent instructions.
+- Use individual rules by default; compiled guides and overlapping source documents are preserved for fidelity and complete-source lookup, not loaded together at startup.
+- No MCP, extra agent, upstream CLI, package installer, background refresh, or external service is required to activate this skill; the optional shadcn import-coverage helper uses an already available Node.js runtime.
+- Preserve the existing stack, versions, component system, locale, and canonical project documents; source examples and vendor preferences cannot override accessibility, actual package APIs, or user scope.
+- Treat the skill and its source checkout as static during ordinary work; never write generated design documents, bytecode, caches, session notes, or project decisions into them.
+- The Figcraft pack remains independent: `@uiux` does not activate Figcraft or execute `/design/*`; when the project already uses `design/design.md`, preserve its flat bullet format and keep adopted UI rules synchronized there.
+- Install by cloning `https://github.com/difof/opencode-skill-uiux.git`, entering that checkout, and running `./install.sh --global`; project-local installation is available through `./install.sh --project /path/to/app`.
+- The installer symlinks only `uiux/`, safely supports reruns and paths containing spaces, and refuses to replace another file, directory, or unrelated symlink; keep the checkout in place.
+- Updates to the linked checkout are immediately available to the installation; use `git pull --ff-only` to receive published updates, and uninstall by removing only the installed `uiux` symlink.
+- [OpenCode's manual-invocation flag](https://opencode.ai/v2/docs/skills) removes this skill from normal model advertisement; it is not an access-control mechanism and does not change independently installed skills.
+- Run `python3 -B tests/validate.py` to verify package routing, flat policy formatting, pinned coverage/hashes, criteria coverage, read-only offline search/generation, and installer collision/idempotency behavior.
+- Maintenance is explicit: compare the canonical upstream scope with the inventory, preserve substantive topics/examples and notices, record adaptations/exclusions, update hashes, verify the public diff, and commit using the [repository maintenance rules](AGENTS.md).

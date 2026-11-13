@@ -1,0 +1,83 @@
+{
+  "kind": "portable-adaptation",
+  "source_name": "ChatGPT Work Sites skill supplied in the authoring environment",
+  "inspected_on": "2026-11-13",
+  "source_distribution": "Original provider resources are not redistributed; only an original portable adaptation is bundled.",
+  "destination": "uiux/references/website-design.md",
+  "resources": [
+    {
+      "path": "Sites/SKILL.md",
+      "sha256": "e203320d1810d204b82f770288e08f232c3c87de416b234c11ad1694aaedb554"
+    },
+    {
+      "path": "Sites/references/design/presentation-led.md",
+      "sha256": "e5ba3863c71d0397e90d7adee8424eb37feb10aab0245f46c3934f7f1cd2c00f"
+    }
+  ],
+  "coverage": [
+    {
+      "id": "visitor-purpose",
+      "source": "Design",
+      "coverage": "Primary visitor task, coherent audience-appropriate direction, established brand, responsive readability, accessibility and purposeful imagery."
+    },
+    {
+      "id": "presentation-progression",
+      "source": "Presentation-led sites / 1",
+      "coverage": "Distinct sections answering visitor questions, meaningful progression and appropriate next action; no repeated pitches or generic filler."
+    },
+    {
+      "id": "concrete-subject",
+      "source": "Presentation-led sites / 2",
+      "coverage": "Relevant imagery, examples and demonstrations; composition and interaction serve actual content."
+    },
+    {
+      "id": "grounded-copy",
+      "source": "Presentation-led sites / 3",
+      "coverage": "Creative concepts within brief, supplied or verified factual claims, clearly illustrative demos, no fabricated social proof or capabilities."
+    },
+    {
+      "id": "scope",
+      "source": "Presentation-led sites / 4 and Design",
+      "coverage": "Presentation depth without unrelated accounts, persistence or integrations; bounded edits and requested frameworks preserved."
+    },
+    {
+      "id": "project-selection",
+      "source": "Workflow / Select and open",
+      "coverage": "Existing identity and audience retained, local-only distinction, appropriate isolated new project, sanitized templates, simple implementation when appropriate."
+    },
+    {
+      "id": "preparation",
+      "source": "Workflow / Prepare and launch",
+      "coverage": "Necessary dependencies only, one installer with stable inputs, independent asset work, bounded delegation, avoid duplicate uncertain operations."
+    },
+    {
+      "id": "implementation",
+      "source": "Workflow / Implement",
+      "coverage": "Focused complete behavior and assets, meaningful metadata, wait for dependencies, preview through existing facilities, revise observed failures."
+    },
+    {
+      "id": "verification",
+      "source": "Workflow / Validate and package",
+      "coverage": "Proportional checks/build, reuse unchanged evidence, finish prerequisites before delivery, distinguish output from verified behavior."
+    },
+    {
+      "id": "publication",
+      "source": "Workflow / Publish and Finish",
+      "coverage": "Actual authorized project workflow, preserve audience/access, resume known pending actions, return verified literal outcome, report verification limits."
+    }
+  ],
+  "excluded": [
+    {
+      "source": "Sites-specific registration, credential APIs, project identifiers, hosting manifests and native publishing tools",
+      "reason": "Provider runtime unavailable in OpenCode; preserving its semantics does not install those capabilities."
+    },
+    {
+      "source": "Vinext/Worker starter, Cloudflare-specific packaging, D1/R2, identity, connector, WebMCP, scheduled-update and private-hosting implementation",
+      "reason": "Platform integrations are outside this portable UI/UX skill; use the project's requested stack and actual tools."
+    },
+    {
+      "source": "Managed-container preview paths, environment flags and ChatGPT model/runtime selection",
+      "reason": "Environment-specific infrastructure is not a portable design rule."
+    }
+  ]
+}
