@@ -24,7 +24,7 @@ class PackageTests(unittest.TestCase):
         routes = set(re.findall(r'\]\((references/[\w-]+\.md)\)', ENTRY.read_text()))
         guides = {p.relative_to(SKILL).as_posix() for p in (SKILL / 'references').glob('*.md')}
         self.assertEqual(routes, guides)
-        self.assertEqual(len(guides), 10)
+        self.assertEqual(len(guides), 12)
         self.assertTrue(all((SKILL / name).read_text().strip() for name in routes))
 
     def test_readme_links(self):
